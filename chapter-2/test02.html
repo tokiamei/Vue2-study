@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html, body {
+    margin:0;
+    padding:0;
+}
+/* 设置body的子元素水平垂直居中 */
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: black; */
+}
+/* 设置p中文字样式 */
+p{
+    color: white;
+    /* 1. font 文档地址： http://www.w3school.com.cn/cssref/pr_font_font.asp ；
+    *  2.vw : 视口宽度 , vh : 视口高度 ；
+    */
+    font: bold 10vw sans-serif;
+    text-transform: uppercase;
+    /* 设置彩虹背景 */
+    background-image: linear-gradient(
+        to right,
+        orangered,
+        orange,
+        gold,
+        lightgreen,
+        cyan,
+        dodgerblue,
+        mediumpurple,
+        hotpink,
+        orangered
+    );
+    background-size: 110vw;
+    /* 添加动画 sliding: 滑行的 */
+    animation: sliding 30s linear infinite;
+    /* 将背景颜色赋值给文字，文档地址： https://developer.mozilla.org/en-US/docs/Web/CSS/background-clip
+        1、-moz代表firefox浏览器私有属性
+        2、-ms代表ie浏览器私有属性
+        3、-webkit代表safari、chrome私有属性
+    */
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+@keyframes sliding {
+    to {
+        background-position: -2000vw;
+    }
+}
+    </style>
+</head>
+<body>
+<p>
+    水水水水就
+</p>
+</body>
+</html>

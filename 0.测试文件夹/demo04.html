@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    let myPet = "哮天犬";
+    const obj = { name: "杨戬"};
+    Object.defineProperty(obj, "pet", {
+        get() { return myPet; },
+        set(val) { myPet = val; }
+    })
+
+
+    // console.log(obj.pet);
+    // console.log(obj.hasOwnProperty("pet"));
+    obj.pet = "九尾妖狐";
+    console.log(obj.pet);
+</script>
+</html>

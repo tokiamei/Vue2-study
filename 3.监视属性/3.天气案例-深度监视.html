@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>今天天气很{{feeling}}</h1>
+        <button @click="changeWeather()">切换天气</button>
+        <hr>
+        <h1>a 的值是{{numbers.a}}</h1>
+        <button @click="numbers.a++">点击改变 a 的值</button>
+        <h1>b 的值是{{numbers.b}}</h1>
+        <button @click="numbers.b++">点击改变 b 的值</button>
+    </div>
+    <script>
+        Vue.config.productionTip = false
+        var app = new Vue({
+            el: '#app',
+            data: {
+                isHot: true,
+                numbers: {
+                    a: 1,
+                    b: 2
+                }
+            },
+            methods: {
+                changeWeather() {
+                    this.isHot = !this.isHot
+                }
+            },
+            computed: {
+                feeling() {
+                    return this.isHot ? '炎热' : '寒冷'
+                }
+            },
+            watch: {
+                isHot: {
+                    // immediate: true,
+                    handler(newValue, oldValue) {
+                    console.log('isHot 被修改了', newValue, oldValue)
+                }
+                },
+                numbers: {
+                    // 监视多级结构中所有属性的变化
+                    deep: true,
+                    handler() {
+                        console.log('number 改变了')
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

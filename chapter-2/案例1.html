@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            margin: 100px;
+        }
+        div:after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+        .btn {
+            background-color: rgb(196, 246, 255);
+            color: red;
+            width: 70px;
+            height: 30px;
+            border: none;
+            float: left;
+        }
+        #btn0 {
+            border-radius: 5px 0px 0px 5px;
+        }
+        #btn1 {
+            border-radius: 0px 5px 5px 0px;
+        }
+        #text {
+            background-color: deeppink;
+            float: left;
+            width: 70px;
+            height: 30px;
+            text-align: center;
+            line-height: 30px;
+        }
+
+    </style>
+</head>
+<body>
+    <script src="https://unpkg.com/vue@2.6.14/dist/vue.min.js"></script>
+    <div id="app">
+        <button id="btn0" class="btn" v-on:click="sub">-</button>
+        <span  id="text" v-text="num"></span>
+        <button id="btn1" class="btn" v-on:click="plus">+</button>
+    </div>
+
+    <script>
+        // var 
+        var app = new Vue({
+            el:'#app',
+            data: {
+                num: 1
+            },
+            methods: {
+                sub: function() {
+                    // console.log('-');
+                    if (this.num <= 0) alert('一滴都不剩了！');
+                    else this.num--;
+                },
+                plus: function() {
+                    // console.log('+');
+                    if (this.num >= 10) alert('给的实在太多了！');
+                    else this.num++;
+                }
+            }
+        })
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+<body>
+    <div id="app">
+        <input type="button" value="自定义参数测试" @click="g(1, 2)"> <br> <br>
+        <input type="button" value="测试事件修饰符" @keyup.s="f">
+    </div>
+    
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+            },
+            methods: {
+                f: function() {
+                    alert(1);
+                },
+                g: function(x, y) {
+                    alert(x+y);
+                }
+            },
+        });
+    </script>
+    
+</body>
+</html>

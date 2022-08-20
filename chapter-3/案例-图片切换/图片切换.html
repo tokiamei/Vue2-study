@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+    <div id="mask">
+        <div class="center">
+          <h2 class="title">
+            <img src="https://cdn.jsdelivr.net/gh/tokiamei/tokiame01/image/img04.jpg" alt="">
+            lovely girl
+          </h2>
+          <img :src="imgArr[index]" alt="" />
+          <!-- 左箭头 -->
+          <!-- <a href="javascript:void(0)" v-show="index!=0" @click="prev" class="left">
+            <img src="./images/prev.png" alt="" />
+          </a> -->
+          <a href="javascript:void(0)" v-if="index!=0" @click="prev" class="left">
+              <img src="./prev.png" alt="" />
+            </a>
+          <!-- 右箭头 -->
+          <a href="javascript:void(0)" v-show="index<imgArr.length-1" @click="next" class="right">
+            <img src="./next.png" alt="" />
+          </a>
+        </div>
+      </div>
+
+    <script>
+        var mask = new Vue({
+            el: '#mask',
+            data: {
+                imgArr: ['https://cdn.jsdelivr.net/gh/tokiamei/tokiame01/image/img01.jpg',
+                         'https://cdn.jsdelivr.net/gh/tokiamei/tokiame01/image/img02.jpg',
+                         'https://cdn.jsdelivr.net/gh/tokiamei/tokiame01/image/img03.jpg',
+                         'https://cdn.jsdelivr.net/gh/tokiamei/tokiame01/image/img04.jpg',
+                         'https://cdn.jsdelivr.net/gh/tokiamei/tokiame01/image/img05.jpg',
+                         'https://cdn.jsdelivr.net/gh/tokiamei/tokiame01/image/img06.jpg',
+                         'https://cdn.jsdelivr.net/gh/tokiamei/tokiame01/image/img07.jpg',
+                         'https://cdn.jsdelivr.net/gh/tokiamei/tokiame01/image/img08.jpg',
+                         'https://cdn.jsdelivr.net/gh/tokiamei/tokiame01/image/img09.jpg',
+                         'https://cdn.jsdelivr.net/gh/tokiamei/tokiame01/image/img10.jpg',
+                         'https://cdn.jsdelivr.net/gh/tokiamei/tokiame01/image/img11.jpg',
+                         'https://cdn.jsdelivr.net/gh/tokiamei/tokiame01/image/img12.jpg',
+                         'https://cdn.jsdelivr.net/gh/tokiamei/tokiame01/image/lanma01.jpg',
+                         'https://cdn.jsdelivr.net/gh/tokiamei/tokiame01/image/lanma02.jpg',
+                         'https://cdn.jsdelivr.net/gh/tokiamei/tokiame01/image/anka01.jpg',
+                         'https://cdn.jsdelivr.net/gh/tokiamei/tokiame01/image/timu01.jpg',
+            ],
+                index: 0
+            },
+            methods: {
+                prev: function() {
+                    this.index--;
+                },
+                next: function() {
+                    this.index++;
+                }
+                },
+        });
+    </script>
+    
+</body>
+</html>

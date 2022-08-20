@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>localStorage</title>
+</head>
+<body>
+    <h2>localStorage</h2>
+    <button onclick="saveData()">点击保存数据</button>
+    <button onclick="readData()">点击读取数据</button>
+    <button onclick="deleteData()">点击删除数据</button>
+    <button onclick="deleteAllData()">点击清空数据</button>
+
+    <script>
+        const p = {name: "马尔科姆", study: "混沌理论"};
+        
+        // 保存、读取、删除都可以写成有参和无参形式
+        function saveData() {
+            localStorage.setItem("msg", "南方巨兽龙");
+            localStorage.setItem("msg", "霸王龙"); // 替换上一条数据
+            localStorage.setItem("person", JSON.stringify(p));
+        }
+
+        function readData(msg) {
+            console.log(JSON.parse(localStorage.getItem(msg))); // 假如数据不存在会返回 null，JSON 之后返回的还是 null
+        }
+
+        readData("person");
+
+        function deleteData(msg) {
+            console.log(localStorage.removeItem(msg)); // 返回的不是布尔值
+        }
+        // deleteData("person"); // undefined
+        // deleteData("msg"); // undefined
+
+        function deleteAllData () {
+            localStorage.clear();
+        }
+
+
+        
+    </script>
+</body>
+</html>

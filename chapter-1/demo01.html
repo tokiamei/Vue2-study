@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ss</title>
+    <!-- 导入 Vue.js -->
+    <!-- 放 body 不 ok 的 -->
+    <script src="https://unpkg.com/vue@2.6.14/dist/vue.min.js"></script>
+</head>
+<body>
+
+<!--<h1>尼飞彼多2</h1>
+&lt;!&ndash; view 层 模板&ndash;&gt;
+<div id="app">
+    {{message}} &lt;!&ndash; 这个里面内容可以更换 &ndash;&gt;
+</div>
+
+<script>
+    var vm = new Vue({
+        el:"#app",
+        // model: 数据，双向绑定
+        data:{
+            message:"Hello vue 看康!"
+        }
+    });
+</script>-->
+
+<!--<div id="app-2">
+<span v-bind:title="message">
+鼠标悬停几秒钟查看此处动态绑定的提示信息！
+</span>
+</div>
+
+<script>
+    var app2 = new Vue({
+        el: '#app-2',
+        data: {
+            message: '页面加载于 ' + new Date().toLocaleString()
+        }
+    });
+</script>-->
+
+<div id="app">
+    <span v-bind:title="message">
+        鼠标放到文字就能看到今天的时间哦！
+    </span>
+</div>
+
+<script>
+    var app = new Vue({
+        el:'#app',
+        data:{
+            message:'页面加载时间：' + new Date().toLocaleString()
+        }
+    })
+</script>
+
+
+</body>
+</html>

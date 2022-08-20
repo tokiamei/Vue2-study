@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>22</title>
+    <style>
+      body {
+        height: 5550px;
+      }
+    </style>
+  </head>
+  <body>
+    <script src="https://unpkg.com/vue@2.6.14/dist/vue.min.js"></script>
+    <div id="app">
+      {{message}}
+      <h2>{{xu.name}}</h2>
+      <ul>
+        <li v-for="subject in class01">{{subject}}</li>
+      </ul>
+    </div>
+
+    <script>
+      var mm = new Vue({
+        el: "#app",
+        data: {
+          message: "尼飞彼多",
+          xu: {
+            name: "徐哥",
+            tel: 13962970517,
+          },
+          class01: ["英语", "数学", "物理"],
+        },
+      });
+    </script>
+  </body>
+</html>

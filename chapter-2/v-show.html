@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <script src="https://unpkg.com/vue@2.6.14/dist/vue.min.js"></script>
+    <div id="app">
+        <input type="button" @mouseover="changeIsShow" value="切换显示状态">
+        <input type="button" value="累加年龄" @dblclick="addAge">
+        <img v-show="isShow" src="https://cdn.jsdelivr.net/gh/tokiamei/tokiame01/image/img06.jpg" alt="" width="800px" height="500px">
+                
+        <img v-show="age>=18" src="https://i0.hdslb.com/bfs/new_dyn/a824881c8c7241883c8a67a626ea71fa293848435.png" alt="" width="500px" height="500px">
+
+    </div>
+    
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                isShow: true,
+                age: 15
+            },
+            methods: {
+                changeIsShow: function() {
+                    this.isShow = !this.isShow;
+                },
+                addAge: function() {
+                    this.age++;
+                }
+            }
+        });
+    </script>
+    
+</body>
+</html>

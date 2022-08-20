@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <h2>忍者：{{name}}</h2>
+      <h2>忍术：{{jutsu}}</h2>
+      <hr />
+      <h2>学生姓名：{{student.name}}</h2>
+      <h2>学生年龄：真实{{student.age.rAge}}，对外{{student.age.sAge}}</h2>
+      <button @click="addGender">点击添加性别</button>
+      <h2 v-show="student.gender">性别：{{student.gender}}</h2>
+      <h2>朋友：</h2>
+      <ul>
+        <li v-for="(f, index) of student.friends" :key="index">
+          {{f.name}} -- {{f.age}}
+        </li>
+      </ul>
+    </div>
+    <script>
+      Vue.config.productionTip = false;
+      const app = new Vue({
+        el: "#app",
+        data: {
+          name: "naruto",
+          jutsu: "仙人術",
+          student: {
+            name: "马老师",
+            age: { rAge: 40, sAge: 20 },
+            friends: [
+              { name: "金毛狮王", age: 99 },
+              { name: "张三丰", age: 156 },
+            ],
+          },
+        },
+        methods: {
+          addGender() {
+            this.$set(this.student, "gender", "男");
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script src="https://unpkg.com/vue@2.6.14/dist/vue.min.js"></script>
+
+
+<!--<div id="app">
+    <li v-for="item in items">
+        {{item.msg}}
+    </li>
+</div>
+
+<script>
+  var vm = new Vue({
+    el:"#app",
+    data:{
+        items:[
+            {msg:'aaa'},
+            {msg:'bbb'},
+            {msg:'000'}
+        ]
+
+        // items:[1,2,4,2,1]
+    }
+  });
+</script>-->
+
+<div id="app">
+    <ol>
+        <li v-for="text in todos">{{text.text}}</li>
+    </ol>
+</div>
+
+<script>
+    var app = new Vue({
+        el:'#app',
+        data:{
+            todos:[
+                {text:'吃饭',m:'ooo'},
+                {text:'喝水'},
+                {text:'学习'},
+            ]
+        }
+    })
+</script>
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        #box01 {
+            height: 200px;
+            width: 200px;
+            border: 1px solid deeppink;
+            background-color: aqua;
+        }
+        #box02 {
+            height: 200px;
+            width: 200px;
+            border: 1px solid rgb(20, 141, 255);
+            background-color: rgb(255, 0, 0);
+        }
+
+    </style>
+</head>
+<body>
+    <div id="app">
+        <h1>花树界降诞{{n}}</h1>
+        <button @click="n--">点击n变小</button>
+        <div id="box01" v-show="n > 1"></div>
+        <div id="box02" v-show="n <= 1"></div>
+
+        <!-- v-if 和 template 的配合使用，不会破坏结构 -->
+        <template v-if="n == 10">
+            <h1>炎热</h1>
+            <h1>寒冷</h1>
+        </template>
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                n: 10
+            }
+        })
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <input type="button" @mouseover="add" value="添加">
+        <input type="button" @mouseover="remove" value="删除">
+        <ul>
+            <!-- <li v-for="baby in pets">{{baby}}</li> -->
+            <li v-for="(baby, index) in pets">{{index+1}} {{baby}}</li>
+        </ul>
+        <h2 v-for="drink in drink" v-bind:title="drink.band">{{drink.band}}</h2>
+    </div>
+
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                pets: ['秩序圣华', '蒂姆', '安卡'],
+                drink: [
+                    {band: '美年达'},
+                    {band: '百世可乐'},
+                    {band: '冰红茶'}
+                ]
+            },
+            methods: {
+                add: function() {
+                    this.drink.push({band: 'starbuck'});
+                },
+                remove: function() {
+                    this.drink.shift();
+                }
+            }
+        });
+    </script>
+    
+</body>
+</html>

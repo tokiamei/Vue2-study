@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script src="https://unpkg.com/vue@2.6.14/dist/vue.min.js"></script>
+
+<div id="app">
+    <p v-if="message">我真帅</p>
+</div>
+
+<script>
+    var aa = new Vue({
+        el:'#app',
+        data:{
+            message:false
+        }
+    })
+</script>
+
+</body>
+</html>

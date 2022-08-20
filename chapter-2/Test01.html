@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="https://unpkg.com/vue@2.6.14/dist/vue.min.js"></script>
+    <div id="app">
+        <!-- <img v-bind:src="imgSrc" v-bind:title="imgTitle+'!!!'" v-bind:class="isActive?'active':''" alt="" width="1000px" height="800px"> -->
+        <p v-bind:class="{active: isActive}">哈哈哈哈</p>
+
+    </div>
+    
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                imgSrc: 'https://cdn.jsdelivr.net/gh/tokiamei/tokiame01/image/img03.jpg',
+                imgTitle: '小妹妹真好看',
+                isActive: true
+            },
+            methods: {
+
+                },
+        });
+    </script>
+</body>
+</html>

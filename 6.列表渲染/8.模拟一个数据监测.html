@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 实现一个需求，star 中的属性发生变化，打印出一句：值被修改了，很困难
+      let star = { name: "naruto", jutsu: "仙人術" };
+      // 这么写死递归了，废了
+      //   Object.defineProperty(star, "name", {
+      //     get() {
+      //       return star.name;
+      //     },
+      //     set(val) {
+      //       star.name = val;
+      //     },
+      //   });
+
+      // Vue 的底层实现，核心部分
+      // 创建一个实例对象，用于监视 star 中属性的变化
+      const obs = new Observer(star);
+      console.log(obs);
+
+      //准备一个 vm 实例对象
+      let vm = {};
+      vm._star = star = obs;
+
+      function Observer(obs) {
+        // 汇总对象所有的属性形成一个数组，键的数组
+        const keys = Object.keys(obs);
+        keys.forEach((k) => {
+          Object.defineProperty(this, k, {
+            get() {
+              return obs[k];
+            },
+            set(val) {
+              console.log(`${k}被修改了`);
+              obs[k] = val;
+            },
+          });
+        });
+      }
+    </script>
+  </body>
+</html>

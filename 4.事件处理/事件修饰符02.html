@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        * {
+            margin-top: 20px;
+        }
+        #demo01 {
+            background-color: skyblue;
+        }
+        .box1 {
+            background-color: deeppink;
+            padding: 5px;
+        }
+        .box2 {
+            background-color: bisque;
+        }
+        .list {
+            width: 200px;
+            height: 200px;
+            background-color: antiquewhite;
+            overflow: auto;
+        }
+        li {
+            height: 100px;
+            background-color: darkkhaki;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!-- 阻止默认事件 -->
+        <a href="https://www.baidu.com" @click.prevent="sayHi">点击打开百度</a>
+        <div id="demo01" @click="sayHi">
+            <!-- 阻止事件冒泡 -->
+            <input type="button" value="点我试试" @click.stop="sayHi">
+        </div>
+        <!-- 事件只触发一次 -->
+        <input type="button" value="点我试试" @click.once="sayHi">
+        <!-- 阻止事件捕获模式 -->
+        <div class="box1" @click.capture="showMsg(1)">
+            div1
+            <div class="box2" @click="showMsg(2)">
+                div2
+            </div>
+        </div>
+        <ul class="list" @wheel="f1">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ul>
+    </div>
+
+    <script>
+        const app = new Vue({
+            el: "#app",
+            data:{},
+            methods: {
+                sayHi(e) {
+                    // e.preventDefault(); // 阻止默认行为
+                    // e.stopPropagation()
+                    alert('螺旋手里剑')
+                },
+                showMsg(msg) {
+                    console.log(msg)
+                },
+                f1() {
+                    console.log('@')
+                }
+            }
+        })
+    </script>
+    
+</body>
+</html>

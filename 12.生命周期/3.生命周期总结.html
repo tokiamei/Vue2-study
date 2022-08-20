@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h2 :style="{opacity}">欢迎学习Vue</h2>
+        <button @click="stopChange">点击关闭定时器</button>
+    </div>
+    <script>
+        Vue.config.productionTip = false
+        var app = new Vue({
+            el: '#app',
+            data: {
+                opacity: 1
+            },
+            methods: {
+                stopChange() {
+                    // clearInterval(this.timer) // 这种方式比较温柔
+                    this.$destroy()
+                }
+            },
+            mounted() {
+                this.timer = setInterval(() => {
+                    console.log(this.timer)
+                app.opacity -= 0.01
+                if (app.opacity <= 0) app.opacity = 1
+            }, 16)
+            },
+            beforeDestroy() {
+                console.log('vm 即将驾鹤西游了')
+                clearInterval(this.timer)
+            },
+            destroyed() {
+                console.log('destroyed')
+            },
+        });
+    </script>
+    
+</body>
+</html>

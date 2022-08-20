@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <button @click="n++">点击n变大</button>
+        <h3>{{n}}</h3> 
+        <h3 v-once>{{n}}</h3>
+    </div>
+    <script>
+        Vue.config.productionTip = false
+        var app = new Vue({
+            el: '#app',
+            data: {
+                n: 1
+            },
+            methods: {
+            }
+        });
+    </script>
+    
+</body>
+</html>
