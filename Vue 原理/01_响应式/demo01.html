@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object.defineProperty</title>
+</head>
+<body>
+    <script>
+        /* 这样也仅仅禁止引用的修改 */
+        const obj = { name: { age: 100} }
+        // const obj = { }
+        // let name = "凌腾云"
+        Object.defineProperty(obj, 'name', {
+            get() {
+                return name
+            },
+            set(newVal) {
+                name = newVal
+                // console.log(name)
+            }
+        })
+        // obj.name = 100
+        // obj.name = "==="
+        // obj.name = "sss"
+        console.log(obj)
+        console.log(obj.name)
+    </script>
+</body>
+</html>
